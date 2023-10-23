@@ -1,0 +1,9 @@
+#!/usr/bin/env python3
+import subprocess
+import sys
+
+OBJCOPY = r"@OBJCOPY@"
+GBAFIX = r"@GBAFIX@"
+
+subprocess.call([OBJCOPY, '-O', 'binary'] + sys.argv[1:3])
+subprocess.call([sys.executable, GBAFIX] + sys.argv[2:])
