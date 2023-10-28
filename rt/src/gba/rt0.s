@@ -2,7 +2,7 @@
 .cpu            arm7tdmi
 
 .section        .pad,"aR",%progbits
-.string         "sdk-seven runtime v0.10.0"
+.string         "sdk-seven runtime v0.10.1"
 
 .section        .text._start_rom,"ax",%progbits
 _start_rom:
@@ -15,18 +15,10 @@ _start_rom:
     @ Wanted ROM, got RAM, give up
     bhi         .
     @ Wanted RAM, got ROM, copy
-    ldr         r2, =__load_end
+    ldr         r2, =__load_dma
 
-    @ r0 = we loaded here
-    @ r1 = we want to be here
-    @ r2 = end
-1:
-    cmp         r1, r2
-    bhs         1f
-    ldm         r0!, {r4, r5, r6, r7, r8, r9, r10, r11}
-    stm         r1!, {r4, r5, r6, r7, r8, r9, r10, r11}
-    b           1b
-1:
+    swi         12 << 16
+
     @ Long branch to the real _start
     @ b _start would appear to work, but would continue
     @ running code in the wrong memory segment.

@@ -151,6 +151,7 @@ SECTIONS
 
     __load = ORIGIN(ROM);
     __load_end = ADDR(.pad) + SIZEOF(.pad);
+    __load_dma = (__load_end - __load) >> 2;
 
     __iwram_lma = LOADADDR(.iwram);
     __iwram_vma = ADDR(.iwram);
