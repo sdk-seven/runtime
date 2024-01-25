@@ -143,6 +143,12 @@ SECTIONS
         *(.noinit .noinit.* .gnu.linkonce.n.*)
     } >NOINIT
 
+    /* HACK: switch to EWRAM section to set heap marker symbols */
+    .__ewram_end__ : {} >EWRAM
+
+    PROVIDE(end = .);
+    PROVIDE(__end__ = .);
+
     .pad :
     {
         KEEP(*(.pad .pad.*))
