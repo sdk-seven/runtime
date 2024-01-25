@@ -143,17 +143,18 @@ SECTIONS
         *(.noinit .noinit.* .gnu.linkonce.n.*)
     } >NOINIT
 
-    /* HACK: switch to EWRAM section to set heap marker symbols */
-    .__ewram_end__ : {} >EWRAM
-
-    PROVIDE(end = .);
-    PROVIDE(__end__ = .);
-
     .pad :
     {
         KEEP(*(.pad .pad.*))
         . = ALIGN(32);
     } >ROM :ROM =0
+
+    .__ewram_symbols__ :
+    {
+        /* heap start */
+        PROVIDE(end = .);
+        PROVIDE(__end__ = .);
+    } >EWRAM
 
     __load = ORIGIN(ROM);
     __load_end = ADDR(.pad) + SIZEOF(.pad);

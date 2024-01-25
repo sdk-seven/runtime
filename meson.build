@@ -1,5 +1,5 @@
 project('seven-rt', 'c',
-  version: '0.11.0',
+  version: '0.11.1',
   license: 'Zlib',
   meson_version: '>=1.1.0',
   default_options: ['buildtype=debugoptimized', 'warning_level=2', 'c_std=c99'])
