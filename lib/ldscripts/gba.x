@@ -149,7 +149,7 @@ SECTIONS
         . = ALIGN(32);
     } >ROM :ROM =0
 
-    .__ewram_symbols__ :
+    __ewram_symbols__ :
     {
         /* heap start */
         PROVIDE(end = .);

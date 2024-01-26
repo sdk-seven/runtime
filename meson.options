@@ -1,2 +1,1 @@
-option('rt_lang', description: 'Runtime target language', type: 'combo', choices: ['c', 'rust'], value: 'c')
-option('rt_target', description: 'Runtime target system', type: 'combo', choices: ['gba'], value: 'gba')
+option('target_language', type: 'combo', choices: ['c', 'rust'], value: 'c')
