@@ -10,5 +10,5 @@ Currently supports C/C++ and Rust, as well as cartridge and multiboot targets.
 
 ## License
 
-All source code in this project is licensed under the Zlib license.\
+This project is licensed under the Zlib license.\
 See [LICENSE.txt](./LICENSE.txt) for more information.
